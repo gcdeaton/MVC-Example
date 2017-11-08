@@ -1,0 +1,8 @@
+﻿@model IEnumerable<CS397FinalProject.Models.Employee>
+
+
+@using (Html.BeginForm("Edit","Employees", FormMethod.Get))
+{
+@Html.AntiForgeryToken()
+@Html.DropDownList("id", new SelectList(Model.Select(e => new { id = e.EmployeeId, Text = e.firstName + " " + e.lastName }), "id", "Text") , new {onchange = "this.form.submit();" })
+}
